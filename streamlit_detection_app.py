@@ -34,7 +34,7 @@ if uploaded_file is not None:
     with st.spinner(text='In progress'):
         #st.sidebar.video(uploaded_file)
         _save_uploadedfile(uploaded_file)
-        opt.source = f'data/videos/{uploaded_file.name}'
+        opt.source = f'data/{uploaded_file.name}'
 else:
     is_valid = False
 
