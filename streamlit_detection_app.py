@@ -29,14 +29,14 @@ def _save_uploadedfile(uploadedfile):
 ## Upload video
 
 uploaded_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
-    if uploaded_file is not None:
-        is_valid = True
-        with st.spinner(text='In progress'):
-            #st.sidebar.video(uploaded_file)
-            _save_uploadedfile(uploaded_file)
-            opt.source = f'data/videos/{uploaded_file.name}'
-    else:
-        is_valid = False
+if uploaded_file is not None:
+    is_valid = True
+    with st.spinner(text='In progress'):
+        #st.sidebar.video(uploaded_file)
+        _save_uploadedfile(uploaded_file)
+        opt.source = f'data/videos/{uploaded_file.name}'
+else:
+    is_valid = False
 
 
 #st.video(video_file)
