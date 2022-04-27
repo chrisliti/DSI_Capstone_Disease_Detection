@@ -29,14 +29,9 @@ def _save_uploadedfile(uploadedfile):
 ## Upload video
 
 uploaded_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
-if uploaded_file is not None:
-    is_valid = True
-    with st.spinner(text='In progress'):
-        #st.sidebar.video(uploaded_file)
-        _save_uploadedfile(uploaded_file)
-        #opt.source = f'data/{uploaded_file.name}'
-else:
-    is_valid = False
+
+!python detect.py --weights best.pt --img 256 --conf 0.1 --source uploaded_file
+
 
 
 #st.video(video_file)
