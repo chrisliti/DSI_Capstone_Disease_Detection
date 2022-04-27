@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 
-os.chdir('/content/drive/MyDrive/Capstone-Project/Object-Detection/yolov5')
+#os.chdir('/content/drive/MyDrive/Capstone-Project/Object-Detection/yolov5')
 
 def _all_subdirs_of(b='.'):
     '''
