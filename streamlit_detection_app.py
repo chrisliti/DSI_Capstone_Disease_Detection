@@ -30,7 +30,7 @@ def _save_uploadedfile(uploadedfile):
 
 uploaded_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
 
-!python detect.py --weights best.pt --img 256 --conf 0.1 --source uploaded_file
+python detect.py --weights best.pt --img 256 --conf 0.1 --source uploaded_file
 
 
 
