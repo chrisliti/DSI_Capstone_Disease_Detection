@@ -1,38 +1,44 @@
 import streamlit as st
 import os
+import PIL
+import cv2
+from pathlib import Path
+import subprocess
+import sys
 
+## Upload video
+video_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
+
+with open(video_file.name, "wb") as f:
+                    f.write(video_file.getbuffer())
+
+
+
+## Run inference
 #os.chdir('/content/drive/MyDrive/Capstone-Project/Object-Detection/yolov5')
 
-def _all_subdirs_of(b='.'):
+img_fdr= video_file.name
+weights_fdr="best.pt"
+
+subprocess.run(f"python3 detect.py --weights {weights_fdr} --source {img_fdr}",shell=True)
+#print(f"python3 detect.py --weights {weights_fdr} --source {img_fdr}")
+
+def get_subdirs(b='.'):
     '''
         Returns all sub-directories in a specific Path
     '''
     result = []
     for d in os.listdir(b):
         bd = os.path.join(b, d)
-        if os.path.isdir(bd): result.append(bd)
+        if os.path.isdir(bd):
+            result.append(bd)
     return result
 
-def _get_latest_folder():
+def get_detection_folder():
     '''
         Returns the latest folder in a runs\detect
     '''
-    return max(all_subdirs_of('runs/detect'), key=os.path.getmtime)
+    return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
 
-def _save_uploadedfile(uploadedfile):
-    '''
-        Saves uploaded videos to disk.
-    '''
-    with open(os.path.join("data/videos",uploadedfile.name),"wb") as f:
-        f.write(uploadedfile.getbuffer())
-
-## Upload video
-
-uploaded_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
-
-python detect.py --weights best.pt --img 256 --conf 0.1 --source uploaded_file
-
-
-
-#st.video(video_file)
-
+for vid in os.listdir(get_detection_folder()):
+  st.video(str(Path(f'{get_detection_folder()}') / vid))
