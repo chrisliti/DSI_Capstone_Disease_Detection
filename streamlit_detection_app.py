@@ -21,7 +21,8 @@ if st.button('Detect Disease'):
   img_fdr= video_file.name
   weights_fdr="best.pt"
 
-  subprocess.run(f"python3 detect.py --weights {weights_fdr} --source {img_fdr}",shell=True)
+  subprocess.run([f"{sys.executable}" "detect.py --weights {weights_fdr} --source {img_fdr}"],shell=True)
+  #subprocess.run([f"{sys.executable}", "script.py"])
   #print(f"python3 detect.py --weights {weights_fdr} --source {img_fdr}")
 
   def get_subdirs(b='.'):
