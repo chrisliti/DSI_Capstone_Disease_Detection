@@ -9,7 +9,7 @@ import moviepy.editor as moviepy
 
 ## Upload video
 video_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
-st.video(video_file)
+#st.video(video_file)
 
 submit = st.button('Detect Disease')
 
