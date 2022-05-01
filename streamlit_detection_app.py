@@ -67,6 +67,7 @@ with st.spinner('Detecting...'):
       #video_bytes = st_video.read()
       #st.video(video_bytes)
       
+      original_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
       vl_sans_mp4 = video_name[0:-4]
       temp_location = vl_sans_mp4 + "temp" + ".mp4"
       original_video.write_videofile(temp_location, fps=30, bitrate="90k", audio_bitrate="128k")
