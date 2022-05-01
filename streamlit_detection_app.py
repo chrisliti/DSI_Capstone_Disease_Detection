@@ -51,10 +51,13 @@ with st.spinner('Detecting...'):
         return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
 
     for vid in os.listdir(get_detection_folder()):
-      st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
-      video_bytes = st_video.read()
-      st.video(video_bytes)
+      #st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
+      #video_bytes = st_video.read()
+      #st.video(video_bytes)
       #st.write(str(Path(f'{get_detection_folder()}') / vid))
+      video_name = str(Path(f'{get_detection_folder()}') / vid)
+      st.write(video_name)
+      st.video(video_name)
       
       #video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
