@@ -55,9 +55,9 @@ with st.spinner('Detecting...'):
       #video_bytes = st_video.read()
       #st.video(video_bytes)
       #st.write(str(Path(f'{get_detection_folder()}') / vid))
-      video_name = str(Path(f'{get_detection_folder()}') / vid)
-      st.write(video_name)
-      st.video(video_name)
+      #video_name = str(Path(f'{get_detection_folder()}') / vid)
+      #st.write(video_name)
+      st.video(str(Path(f'{get_detection_folder()}') / vid))
       
       #video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
