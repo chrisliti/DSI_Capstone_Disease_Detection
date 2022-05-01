@@ -5,10 +5,11 @@ import cv2
 from pathlib import Path
 import subprocess
 import sys
+import moviepy.editor as moviepy
 
 ## Upload video
 video_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
-st.video(video_file)
+#st.video(video_file)
 
 submit = st.button('Detect Disease')
 
@@ -50,10 +51,19 @@ with st.spinner('Detecting...'):
         return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
 
     for vid in os.listdir(get_detection_folder()):
-      st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
+      #st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
+      #video_bytes = st_video.read()
+      #st.video(video_bytes)
+      #st.write(str(Path(f'{get_detection_folder()}') / vid))
+      
+      video_name = str(Path(f'{get_detection_folder()}') / vid)
+      st.write(video_name)
+      clip = moviepy.VideoFileClip(video_name)
+      clip.write_videofile(video_name)
+      st_video = open(video_name,'rb')
       video_bytes = st_video.read()
       st.video(video_bytes)
-      #st.write(str(Path(f'{get_detection_folder()}') / vid))
+            
       
 
       
