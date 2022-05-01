@@ -44,4 +44,5 @@ if st.button('Detect Disease'):
       return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
 
   for vid in os.listdir(get_detection_folder()):
-    st.video(str(Path(f'{get_detection_folder()}') / vid))
+    #st.video(str(Path(f'{get_detection_folder()}') / vid))
+    print(str(Path(f'{get_detection_folder()}') / vid))
