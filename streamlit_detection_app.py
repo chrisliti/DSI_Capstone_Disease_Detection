@@ -66,7 +66,13 @@ with st.spinner('Detecting...'):
       #st_video = open(video_name,'rb')
       #video_bytes = st_video.read()
       #st.video(video_bytes)
-      st.download_button('Download Video', video_name)
+      with open(video_name, "rb") as file:
+        btn = st.download_button(
+          label="Download Video",
+          data=file,
+          file_name="Detection Disease Video",
+          mime="video/mp4"
+          )
       
 
             
