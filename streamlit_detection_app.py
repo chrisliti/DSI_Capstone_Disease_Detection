@@ -51,15 +51,15 @@ with st.spinner('Detecting...'):
         return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
 
     for vid in os.listdir(get_detection_folder()):
-      #st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
-      #video_bytes = st_video.read()
-      #st.video(video_bytes)
+      st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
+      video_bytes = st_video.read()
+      st.video(video_bytes)
       #st.write(str(Path(f'{get_detection_folder()}') / vid))
       #video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
       #st.video(str(Path(f'{get_detection_folder()}') / vid))
       
-      video_name = str(Path(f'{get_detection_folder()}') / vid)
+      #video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
       #clip = moviepy.VideoFileClip(video_name)
       #clip.write_videofile(video_name)
@@ -67,13 +67,7 @@ with st.spinner('Detecting...'):
       #video_bytes = st_video.read()
       #st.video(video_bytes)
       
-      original_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
-      vl_sans_mp4 = video_name[0:-4]
-      temp_location = vl_sans_mp4 + "temp" + ".mp4"
-      original_video.write_videofile(temp_location, fps=30, bitrate="90k", audio_bitrate="128k")
-      os.rename(video_location, vl_sans_mp4 + "input" + '.mp4')
-      os.rename(temp_location, video_location)
-      st.video(video_location)
+
             
       
 
