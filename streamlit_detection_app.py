@@ -57,15 +57,15 @@ with st.spinner('Detecting...'):
       #st.write(str(Path(f'{get_detection_folder()}') / vid))
       #video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
-      st.video(str(Path(f'{get_detection_folder()}') / vid))
+      #st.video(str(Path(f'{get_detection_folder()}') / vid))
       
-      #video_name = str(Path(f'{get_detection_folder()}') / vid)
-      #st.write(video_name)
-      #clip = moviepy.VideoFileClip(video_name)
-      #clip.write_videofile(video_name)
-      #st_video = open(video_name,'rb')
-      #video_bytes = st_video.read()
-      #st.video(video_bytes)
+      video_name = str(Path(f'{get_detection_folder()}') / vid)
+      st.write(video_name)
+      clip = moviepy.VideoFileClip(video_name)
+      clip.write_videofile(video_name)
+      st_video = open(video_name,'rb')
+      video_bytes = st_video.read()
+      st.video(video_bytes)
             
       
 
