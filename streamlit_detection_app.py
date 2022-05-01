@@ -70,7 +70,7 @@ with st.spinner('Detecting...'):
         btn = st.download_button(
           label="Download Video",
           data=file,
-          file_name="Detection Disease Video",
+          file_name="Detection Disease Video.mp4",
           mime="video/mp4"
           )
       
