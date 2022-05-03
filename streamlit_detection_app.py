@@ -6,6 +6,7 @@ from pathlib import Path
 import subprocess
 import sys
 import moviepy.editor as moviepy
+from PIL import Image
 
 ## introduction
 
