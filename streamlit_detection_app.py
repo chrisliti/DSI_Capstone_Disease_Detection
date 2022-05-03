@@ -30,7 +30,7 @@ This web page leverages computer vision (deep learning) to detect plant diseases
 st.subheader('Upload Video')
 st.write('Upload a video of your crops below for detection.')
 video_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
-#st.success("Your video has been loaded and is ready for detection.")
+
 #st.video(video_file)
 
 st.subheader('Disease Detection')
@@ -82,7 +82,7 @@ with st.spinner('Detecting...'):
       #video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
       #st.video(str(Path(f'{get_detection_folder()}') / vid))
-      st.success("Detection process is complete. Your video is ready for downloading.")
+      
       video_name = str(Path(f'{get_detection_folder()}') / vid)
       #st.write(video_name)
       #clip = moviepy.VideoFileClip(video_name)
@@ -99,7 +99,7 @@ with st.spinner('Detecting...'):
           file_name="Detection Disease Video.mp4",
           mime="video/mp4"
           )
-        st.success("Object detection process completed.")
+        
       
       
 
