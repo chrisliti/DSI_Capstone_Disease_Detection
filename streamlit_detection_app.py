@@ -17,17 +17,21 @@ html_temp = """
 st.markdown(html_temp,unsafe_allow_html=True)
 
 st.markdown("")
-image = Image.open('Tomato_img1.jpg')
+image = Image.open('drone_field1.jpeg')
 st.image(image,use_column_width=True)
 
 st.markdown("""
-This web page leverages computer vision (deep learning) to classify plant disease images for the following crops:
+This web page leverages computer vision (deep learning) to detect plant diseases from videos. This application uses YoloV5 algorithm.
 
 
 ## Upload video
+st.subheader('Upload Video')
+st.write('Upload a video of your crops below for detection.')
 video_file = st.file_uploader('myvideo.mp4', type = ['mp4'])
 #st.video(video_file)
 
+st.subheader('Disease Detection')
+st.write('Hit the Detect Disease button below to run the algorithm on your video.')
 submit = st.button('Detect Disease')
 
 with st.spinner('Detecting...'):
@@ -83,6 +87,8 @@ with st.spinner('Detecting...'):
       #st_video = open(video_name,'rb')
       #video_bytes = st_video.read()
       #st.video(video_bytes)
+      st.subheader('Download Processed Video')
+      st.write('Hit the Download Video button to download your processed video below')
       with open(video_name, "rb") as file:
         btn = st.download_button(
           label="Download Video",
