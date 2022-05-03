@@ -22,7 +22,13 @@ image = Image.open('drone_field1.jpeg')
 st.image(image,use_column_width=True)
 
 st.markdown("""
-This web page leverages computer vision (deep learning) to detect plant diseases from videos. This application uses YoloV5 algorithm.
+This web page leverages computer vision (deep learning) to detect plant diseases from videos. This application uses YoloV5 algorithm. 
+Follow the following steps:
+
+1. Load a video of your crops.
+2. Hit the Detect Disease button to commence detection.
+3. Hit Download Video  to download processed video.
+
 """)
 
 
@@ -94,7 +100,7 @@ with st.spinner('Detecting...'):
       st.write('Hit the Download Video button to download your processed video below')
       with open(video_name, "rb") as file:
         btn = st.download_button(
-          label="Download Video",
+          label="Download Processed Video",
           data=file,
           file_name="Detection Disease Video.mp4",
           mime="video/mp4"
