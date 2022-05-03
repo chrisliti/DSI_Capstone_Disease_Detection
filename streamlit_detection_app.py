@@ -98,7 +98,7 @@ with st.spinner('Detecting...'):
       #video_bytes = st_video.read()
       #st.video(video_bytes)
       st.subheader('3. Download Processed Video')
-      st.write('Hit the Download Video button to download your processed video below')
+      st.success('Disease detection completed. Hit the button below to download your processed video')
       with open(video_name, "rb") as file:
         btn = st.download_button(
           label="Download Processed Video",
