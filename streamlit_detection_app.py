@@ -13,15 +13,16 @@ html_temp = """
 <div style="background-color:dodgerblue;padding:10px">
 <h2 style="color:white;text-align:center;">Plant Disease Detection App </h2>
 </div>
-    """
+"""
 st.markdown(html_temp,unsafe_allow_html=True)
 
-st.markdown("")
+st.markdown(" ")
 image = Image.open('drone_field1.jpeg')
 st.image(image,use_column_width=True)
 
 st.markdown("""
 This web page leverages computer vision (deep learning) to detect plant diseases from videos. This application uses YoloV5 algorithm.
+""")
 
 
 ## Upload video
