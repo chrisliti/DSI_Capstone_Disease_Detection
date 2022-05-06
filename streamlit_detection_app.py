@@ -1,3 +1,4 @@
+## Import Libraries
 import streamlit as st
 import os
 import PIL
@@ -17,10 +18,12 @@ html_temp = """
 """
 st.markdown(html_temp,unsafe_allow_html=True)
 
+## Display intro image
 st.markdown(" ")
 image = Image.open('drone_field1.jpeg')
 st.image(image,use_column_width=True)
 
+## Intro info.
 st.subheader("Overview")
 st.markdown("""
 This web page leverages computer vision (deep learning) to detect plant diseases from videos. This application uses YoloV5 algorithm. 
@@ -58,7 +61,8 @@ with st.spinner('Detecting...'):
 
     img_fdr= video_file.name
     weights_fdr="best.pt"
-
+    
+    ## Run detect.py from yolo from within app.
     subprocess.run([f"{sys.executable} detect.py --weights {weights_fdr} --source {img_fdr}"],shell=True)
     #subprocess.Popen([f"{sys.executable} -m scoop run.py {RUN_ID}"],stdout=PIPE,stderr=STDOUT,shell=True)
     #subprocess.run([f"{sys.executable}", "script.py"])
@@ -80,23 +84,14 @@ with st.spinner('Detecting...'):
             Returns the latest folder in a runs\detect
         '''
         return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
+      
+    ## Download video from runs yolo folder
 
     for vid in os.listdir(get_detection_folder()):
-      #st_video = open(str(Path(f'{get_detection_folder()}') / vid),'rb')
-      #video_bytes = st_video.read()
-      #st.video(video_bytes)
-      #st.write(str(Path(f'{get_detection_folder()}') / vid))
-      #video_name = str(Path(f'{get_detection_folder()}') / vid)
-      #st.write(video_name)
-      #st.video(str(Path(f'{get_detection_folder()}') / vid))
+
       
       video_name = str(Path(f'{get_detection_folder()}') / vid)
-      #st.write(video_name)
-      #clip = moviepy.VideoFileClip(video_name)
-      #clip.write_videofile(video_name)
-      #st_video = open(video_name,'rb')
-      #video_bytes = st_video.read()
-      #st.video(video_bytes)
+
       st.subheader('3. Download Processed Video')
       st.success('Disease detection completed. Hit the button below to download your processed video')
       with open(video_name, "rb") as file:
