@@ -1,3 +1,4 @@
+![alt text](https://github.com/chrisliti/DSI_Capstone_Disease_Detection/blob/master/drone_field1.jpeg)
 # Overview
 
 This repo entails code for developing an object detection algorithm to detect plant diseases. The YOLOV5 algorithm will be utilized for this project.
